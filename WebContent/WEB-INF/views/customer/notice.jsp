@@ -15,8 +15,12 @@
 <meta charset="UTF-8">
 <title>공지사항 목록</title>
 
+<<<<<<< HEAD
 <link href="../css/reset.css" type="text/css" rel="stylesheet" />
 <link href="css/notice.css" type="text/css" rel="stylesheet" />
+=======
+
+>>>>>>> branch 'master' of https://github.com/JHY13/JSP.git
 <script src="../js/modernizr-custom.js" type="text/javascript">
 	document.createElement("main");
 </script>
