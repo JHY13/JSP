@@ -1,4 +1,3 @@
-
 <%@page import="java.util.Date"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -9,15 +8,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>공지사항</title>
-</head>
-<body>
-
-	<jsp:include page="../inc/header.jsp"></jsp:include>
+	<main> <%-- <jsp:include page="../inc/header.jsp"></jsp:include> --%>
 	<table border="1">
 		<tbody>
 			<tr>
@@ -25,11 +16,11 @@
 				<td colspan="3">${n.title}</td>
 			</tr>
 			<tr>
-
+	
 				<td>작성일</td>
 				<td colspan="3"><fmt:formatDate pattern="yyyy-MM-dd"
 						value="${n.regdate}" /></td>
-
+	
 			</tr>
 			<tr>
 				<td>작성자</td>
@@ -46,8 +37,8 @@
 						<a href="../download?f=${f.src}">${f.src}</a>
 						<%-- <a href="upload/${f.src}">${f.src}</a> --%>
 						<c:if test="${s.last == false}">
-                  ,
-               </c:if>
+		                  ,
+		               </c:if>
 					</c:forEach>
 				</td>
 			</tr>
@@ -56,12 +47,12 @@
 			</tr>
 		</tbody>
 	</table>
-
+	
 	<!-- 준모오빠가 주신 코드 16.10.31  -->
 	<div>
 		<c:if test="${empty pn}">
-            이전글이 없습니다.
-         </c:if>
+		            이전글이 없습니다.
+		         </c:if>
 		<c:if test="${not empty pn}">
 			<a href="notice-detail?code=${pn.code}">이전글 :${pn.title}</a>
 		</c:if>
@@ -69,19 +60,16 @@
 	<div>
 		<a href="notice-detail?code=${nn.code}">다음글 :${nn.title}</a>
 	</div>
-
+	
 	<!--  -->
-
-
+	
+	
 	<div>
 		<a href="notice">목록</a> <a href="notice-edit?code=${n.code}">수정</a>
 		<!-- 하나보낼 때는 get을 많이 씀 -->
 		<a href="notice-del?code=${n.code}">삭제</a>
 	</div>
-
-</body>
-</html>
-
+	</main>
 
 
 

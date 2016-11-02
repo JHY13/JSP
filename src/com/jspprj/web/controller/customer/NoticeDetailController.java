@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.tiles.TilesContainer;
+import org.apache.tiles.access.TilesAccess;
+
 import com.jspprj.web.dao.NoticeDao;
 import com.jspprj.web.dao.NoticeFileDao;
 import com.jspprj.web.dao.mybatis.MyBatisNoticeDao;
@@ -56,7 +59,10 @@ public class NoticeDetailController extends HttpServlet {
 		//1. 그냥 부르기 : 네가 새로 해라 (일을 새로 분배할때)
 		//response.sendRedirect("notice.jsp");
 		//2. 자원을 공유하면서 부르기 : 일을 이어서 계속 해라 
-		request.getRequestDispatcher("/WEB-INF/views/customer/notice-detail.jsp").forward(request, response);
+		
+		TilesContainer container = TilesAccess.getContainer(request.getSession().getServletContext());
+		container.render("customer.notice-detail", request, response);
+		/*request.getRequestDispatcher("/WEB-INF/views/customer/notice-detail.jsp").forward(request, response);*/
 	}
 }
 
